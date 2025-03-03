@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    font-family: 'Press Start 2P', cursive;
+    image-rendering: pixelated;
+}
+
+.loading-container {
+    text-align: center;
+}
+
+.pixel-border {
+    padding: 4px;
+    background: #fff;
+    position: relative;
+    box-shadow: 
+        0 0 0 4px #000,
+        0 0 0 8px #fff;
+    image-rendering: pixelated;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 30px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        45deg,
+        #00ff00 25%,
+        #33ff33 25%,
+        #33ff33 50%,
+        #00ff00 50%,
+        #00ff00 75%,
+        #33ff33 75%
+    );
+    background-size: 20px 20px;
+    animation: move-bg 0.5s linear infinite;
+    transition: width 0.3s ease-out;
+}
+
+.loading-text {
+    color: #00ff00;
+    font-size: 16px;
+    margin-top: 20px;
+    text-shadow: 
+        2px 2px #000,
+        -2px -2px #000,
+        2px -2px #000,
+        -2px 2px #000;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes move-bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
